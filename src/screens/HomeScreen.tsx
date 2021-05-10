@@ -52,10 +52,11 @@ const HomeScreen = (props: IHomeScreenProps) => {
     }
 
     const savePhrase = () => {
-
-        console.log('inside save', phrase)
         dispatch(phrasesActions.savePhrase(phrase))
 
+        /*
+            Aqui aniria la part d'actualitzar el AsyncStorage afegint la frase al array de frases que li agraden a l'usuari
+        */
     }
 
 

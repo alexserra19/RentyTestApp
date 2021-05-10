@@ -9,6 +9,7 @@ export function* initialize() {
 
     console.log('----INITIALIZE CONFIGURATION----')
     //Aqui aniria el carregar la informació del asyncStorage per a poder visualitzarla despres al llistat
+    // un cop carregada aquesta es posaria al reducer de phrasesReducer
     //pero no he tingut més temps
 
 }
