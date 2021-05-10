@@ -8,6 +8,8 @@ import AsyncStorageService from '../../services/asyncStorageService';
 export function* initialize() {
 
     console.log('----INITIALIZE CONFIGURATION----')
+    //Aqui aniria el carregar la informació del asyncStorage per a poder visualitzarla despres al llistat
+    //pero no he tingut més temps
 
 }
 

@@ -6,7 +6,7 @@ export default {
         budget: 'Budget',
         profile: 'Profile',
     },
-    domain:'http://82.223.204.60:80/api',
+    domain:'https://cat-fact.herokuapp.com',
     colors: {
         red: '#ff2800',
         yellow:'#febc59',
