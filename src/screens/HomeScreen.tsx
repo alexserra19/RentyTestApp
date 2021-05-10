@@ -3,10 +3,12 @@ import { View, StyleSheet, SafeAreaView, TouchableOpacity, Text, TextInput, Plat
 import AppConstants from '../utils/AppConstants';
 import { normalize } from 'react-native-elements';
 // import { commonStyles } from '../../styles/common';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IsLoadingHoc } from "../components/HOCS/IsLoadingHOC";
 import { HeaderBar } from "../components/shared/HeaderBar"
 import PhrasesService from "../services/phrasesService";
+import phrasesActions from "../store/actions/phrasesActions";
+
 import App from '../App';
 
 interface IHomeScreenProps {
@@ -17,6 +19,7 @@ interface IHomeScreenProps {
 const HomeScreen = (props: IHomeScreenProps) => {
 
     const [phrase, setPhrase] = useState(null);
+    const userPhrases = useSelector(store => store.phrasesReducer.phrases);
 
     const dispatch = useDispatch()
 
@@ -28,6 +31,9 @@ const HomeScreen = (props: IHomeScreenProps) => {
         loadInitialPhrase()
     }, []);
 
+    useEffect(() => {
+       console.log('user phrases ->', userPhrases)
+    }, [userPhrases]);
 
     const loadPhrase = async () => {
         props.setLoading(true)
@@ -48,6 +54,8 @@ const HomeScreen = (props: IHomeScreenProps) => {
     const savePhrase = () => {
 
         console.log('inside save', phrase)
+        dispatch(phrasesActions.savePhrase(phrase))
+
     }
 
 
