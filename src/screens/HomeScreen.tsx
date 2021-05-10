@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {View, StyleSheet, Image, ActivityIndicator,TouchableOpacity, Text, TextInput, Platform, Alert } from 'react-native';
+import { View, StyleSheet, SafeAreaView, TouchableOpacity, Text, TextInput, Platform, Alert } from 'react-native';
 import AppConstants from '../utils/AppConstants';
 import { normalize } from 'react-native-elements';
 // import { commonStyles } from '../../styles/common';
@@ -8,40 +8,44 @@ import { LoadingOverlay } from '../components/shared/LoadingOverlay';
 import { useDispatch } from "react-redux";
 import generalConfigurationActions from '../store/actions/generalConfigurationActions'
 import { IsLoadingHoc } from "../components/HOCS/IsLoadingHOC";
+import { HeaderBar } from "../components/shared/HeaderBar"
 
-interface ILoginScreenProps {
+
+interface IHomeScreenProps {
     navigation: any;
+    setLoading: Function
 }
 
-const LoginScreen = (props: ILoginScreenProps)  => {
+const HomeScreen = (props: IHomeScreenProps) => {
 
     const dispatch = useDispatch()
 
 
     useEffect(() => {
-
         console.log('------props', props)
-        props.setLoading(true)
-        return() => {
+        props.setLoading(false)
+        return () => {
         }
     }, []);
 
 
     return (
-        <View style={styles.centeredView}>
-            <Text>Pantalla Inicial</Text>
-        </View>
+        <SafeAreaView style={styles.centeredView}>
+            <HeaderBar
+                title={'View My Favs'}
+            />
+        </SafeAreaView>
 
     );
 }
 
-export default IsLoadingHoc(LoginScreen);
+export default IsLoadingHoc(HomeScreen);
 
 
 const styles = StyleSheet.create({
     centeredView: {
-        backgroundColor:AppConstants.colors.white,
+        backgroundColor: AppConstants.colors.white,
         flex: 1,
-        height:'100%',
+        height: '100%',
     },
 });

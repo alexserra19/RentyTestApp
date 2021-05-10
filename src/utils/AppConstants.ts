@@ -20,6 +20,6 @@ export default {
         darkRed: '#af201e'
     },
     asyncStorageKeys:{
-        
+        savedPhrases: 'savedPhrases'
     },
 }

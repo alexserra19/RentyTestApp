@@ -5,10 +5,14 @@ export const IsLoadingHoc = (WrappedComponent) => {
     function HOC(props) {
         const [isLoading, setLoading] = useState(true);
 
+        const setLoadingState = isComponentLoading => {
+            setLoading(isComponentLoading)
+        }
+
         return (
             <>
                 {isLoading && <LoadingOverlay />}
-                <WrappedComponent {...props} setLoading={setLoading} />
+                <WrappedComponent {...props} setLoading={setLoadingState} />
             </>
         )
     }

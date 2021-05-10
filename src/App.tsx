@@ -1,6 +1,5 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
-import { name as appName } from '../app.json';
 import { Provider } from 'react-redux';
 import StackNavigator from './navigation/Navigator'
 import { NavigationContainer } from '@react-navigation/native';
@@ -31,4 +30,4 @@ export default class App extends React.Component {
   }
 }
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent("RentyAppTest", () => App);
