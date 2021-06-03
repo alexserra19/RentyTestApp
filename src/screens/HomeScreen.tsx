@@ -10,6 +10,7 @@ import PhrasesService from "../services/phrasesService";
 import phrasesActions from "../store/actions/phrasesActions";
 
 import App from '../App';
+import { useNavigation } from '@react-navigation/native';
 
 interface IHomeScreenProps {
     navigation: any;
